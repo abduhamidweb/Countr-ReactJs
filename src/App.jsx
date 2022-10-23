@@ -6,7 +6,8 @@ import Header from "./components/Header/Header.jsx";
 import DoorDashFavorite from "./components/Loading/DoorDashFavorite";
 import context from "./context";
 import { toast, ToastContainer } from 'react-toastify'
-import 'react-toastify/dist/ReactToastify.css'
+import 'react-toastify/dist/ReactToastify.css';
+
 const App = () => {
   const [data, setData] = useState([]);
   const [category, setCategory] = useState([]);

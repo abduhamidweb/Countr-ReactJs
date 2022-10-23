@@ -9,12 +9,14 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "aos": "^3.0.0-beta.6",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-loader-spinner": "^5.3.4",
     "react-loading-skeleton": "^3.1.0",
     "react-router-dom": "^6.4.2",
-    "react-toastify": "^9.0.8"
+    "react-toastify": "^9.0.8",
+    "wow.js": "^1.2.2"
   },
   "devDependencies": {
     "@types/react": "^18.0.17",

@@ -1,11 +1,12 @@
 import React, { useContext } from "react";
 import context from "../../context";
 const Card = () => {
+
   let  data = useContext(context)
   data=data.item
   return (
     <>
-      <div className="card" id="card">
+      <div className="card"  id="card" data-aos="fade-in" data-aos-duration="10000">
         <img src={data.flags.png} alt="img" />
         <div className="card-body ">
           <h5 className="card-title">{data.name.common
