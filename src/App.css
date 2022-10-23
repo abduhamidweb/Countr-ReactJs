@@ -1,0 +1,89 @@
+.darkmod {
+  cursor: pointer;
+}
+
+.hero {
+  background: #F2F2F2 !important;
+
+}
+
+input {
+  background: #FFFFFF;
+  box-shadow: 0px 2px 9px rgba(0, 0, 0, 0.0532439);
+  border-radius: 5px;
+  border: solid #fff !important;
+}
+
+select {
+  background: #FFFFFF;
+  box-shadow: 0px 2px 9px rgba(0, 0, 0, 0.0532439);
+  border-radius: 5px;
+  border: solid #fff !important;
+  outline: none !important;
+  border: none !important;
+}
+
+main {
+  background: #F2F2F2;
+  padding-bottom: 50px;
+}
+
+#card {
+  margin-top: 20px;
+  width: 267px;
+  height: 366px;
+  padding: 0;
+  margin:20px auto;
+}
+#card img{
+  height: 160px !important;
+  border-radius: 5px 5px 0 0;
+}
+#card .card-body{
+  padding: 24px !important;
+}
+#card .card-body .card-title{
+  font-family: 'Nunito Sans';
+  font-style: normal;
+  font-weight: 800;
+  font-size: 18px;
+  line-height: 26px;
+  /* identical to box height, or 144% */
+
+
+  color: #111517;
+
+}
+#card .card-body .stron{
+  font-family: 'Nunito Sans';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 16px;
+  /* identical to box height, or 114% */
+
+
+  color: #111517;
+}
+#card .card-body .span{
+    font-family: 'Nunito Sans';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 16px;
+    /* identical to box height, or 114% */
+margin-left: 4px;
+
+    color: #2a2e30;
+}
+.cards .row{
+  justify-content: space-between;
+}
+@media only screen and (max-width:576px) {
+  #search-country{
+    width: 100% !important;
+  }
+  .select-category {
+    width: 100% !important;
+  }
+}
