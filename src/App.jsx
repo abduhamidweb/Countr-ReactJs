@@ -11,7 +11,14 @@ import 'react-toastify/dist/ReactToastify.css';
 const App = () => {
   const [data, setData] = useState([]);
   const [category, setCategory] = useState([]);
-  const [search, setSearch] = useState('')
+  const [search, setSearch] = useState('');
+  const [currendPage, setCurrentPage] = useState(1);
+  const [totolPage, setTotolPage] = useState(10);
+
+  const fristPage = currendPage * totolPage;
+  const lastPage = fristPage - totolPage;
+  const lastData = data.slice(lastPage, fristPage);
+
   async function getAllPost() {
     const Response = await fetch("https://restcountries.com/v3.1/all");
     const result = await Response.json();
@@ -27,12 +34,11 @@ const App = () => {
     }
   }
   const categoryData = async (region) => {
-    console.log(region)
     const Response = await fetch(`https://restcountries.com/v3.1/region/${region}`);
     const result = await Response.json();
     setData(result);
-    // console.log(result)
   }
+
   data.forEach((e) => {
     if (!category.includes(e.region)) {
       setCategory(category.push(e.region))
@@ -91,7 +97,7 @@ const App = () => {
                   return (
                     <>
                       <context.Provider value={{ item }}>
-                        <Card />
+                        <Card/>
                       </context.Provider>
 
                     </>

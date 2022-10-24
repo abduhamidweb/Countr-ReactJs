@@ -1,8 +1,20 @@
-import React, { useContext } from "react";
+import React, { useContext,useState } from "react";
 import context from "../../context";
 const Card = () => {
+  // let [dats, setDatas] = useState([])
+  let data = useContext(context);
+//   let { lastData } = useContext(context);
+//   let { totolPage } = useContext(context);
+// lastData.forEach((item) => {
+//   setDatas.push([item])
+// })
+//   console.log(dats)
 
-  let  data = useContext(context)
+  // console.log(lastData)
+  // let pageNumber = []
+  // for (let i = 1; i <= Math.ceil(data.length / totolPage); i++){
+  //   pageNumber.push(i)
+  // }
   data=data.item
   return (
     <>
