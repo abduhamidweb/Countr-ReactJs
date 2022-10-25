@@ -1,8 +1,8 @@
 import React, { useContext,useState } from "react";
 import context from "../../context";
-const Card = () => {
+const Card = ({ data }) => {
   // let [dats, setDatas] = useState([])
-  let data = useContext(context);
+  // let data = useContext(context);
 //   let { lastData } = useContext(context);
 //   let { totolPage } = useContext(context);
 // lastData.forEach((item) => {
@@ -15,7 +15,7 @@ const Card = () => {
   // for (let i = 1; i <= Math.ceil(data.length / totolPage); i++){
   //   pageNumber.push(i)
   // }
-  data=data.item
+  // data=data.item
   return (
     <>
       <div className="card"  id="card" data-aos="fade-in" data-aos-duration="10000">

@@ -79,6 +79,18 @@ margin-left: 4px;
 .cards .row{
   justify-content: space-between;
 }
+.pagination_list {
+  width: 40%;
+  display: flex;
+  justify-content: space-between;
+  margin: auto;
+  list-style: none;
+}
+.pagination__item:hover{
+  background: gray !important ;
+  color: white !important ;
+  cursor: pointer;
+}
 @media only screen and (max-width:576px) {
   #search-country{
     width: 100% !important;

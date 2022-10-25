@@ -7,18 +7,26 @@ import DoorDashFavorite from "./components/Loading/DoorDashFavorite";
 import context from "./context";
 import { toast, ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
+import Pagination from "./components/Pagination/Pagination";
 
 const App = () => {
+
   const [data, setData] = useState([]);
   const [category, setCategory] = useState([]);
   const [search, setSearch] = useState('');
   const [currendPage, setCurrentPage] = useState(1);
-  const [totolPage, setTotolPage] = useState(10);
+  const [totolPage, setTotolPage] = useState(20);
 
   const fristPage = currendPage * totolPage;
   const lastPage = fristPage - totolPage;
   const lastData = data.slice(lastPage, fristPage);
+  // const [pageNumber, setPageNumber] = useState([])
+  let pageNumber = []
 
+  for (let i = 1; i <= Math.ceil(data.length / totolPage); i++) {
+    pageNumber.push(i)
+    // console.log(i)
+  }
   async function getAllPost() {
     const Response = await fetch("https://restcountries.com/v3.1/all");
     const result = await Response.json();
@@ -38,7 +46,6 @@ const App = () => {
     const result = await Response.json();
     setData(result);
   }
-
   data.forEach((e) => {
     if (!category.includes(e.region)) {
       setCategory(category.push(e.region))
@@ -93,18 +100,25 @@ const App = () => {
           <div className="container">
             <div className="row ">
               {
-                data.length > 0 ? data.map(item => {
+                lastData.length > 0 ? lastData.map(item => {
                   return (
                     <>
-                      <context.Provider value={{ item }}>
-                        <Card/>
-                      </context.Provider>
-
+                      {/* <context.Provider value={{ item }}> */}
+                      <Card data={item} />
+                      {/* </context.Provider> */}
                     </>
                   )
-
                 }) : <DoorDashFavorite />
               }
+              <div className="row">
+                <div className="col-12">
+                  <context.Provider value={{ pageNumber ,setCurrentPage}} >
+                    
+                <Pagination/>
+
+    </context.Provider>
+                </div>
+</div>
             </div>
           </div>
         </section>
@@ -114,5 +128,4 @@ const App = () => {
     </>
   );
 };
-
 export default App;
