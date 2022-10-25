@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef,useContext, createContext } from "react";
 import "./App.css";
 import Card from "./components/Card/Card";
 import Footer from "./components/Footer/Footer";
@@ -8,9 +8,13 @@ import context from "./context";
 import { toast, ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
 import Pagination from "./components/Pagination/Pagination";
-
+export const ThemeContainer=createContext(null)
 const App = () => {
-
+  // dark mode
+  const [theme, setThem] = useState('dark')
+  const toggleThem =()=> {
+  setThem((curr)=>(curr==="light" ? "dark" : "light"))
+  }
   const [data, setData] = useState([]);
   const [category, setCategory] = useState([]);
   const [search, setSearch] = useState('');
@@ -56,9 +60,11 @@ const App = () => {
   }, []);
   return (
     <>
-      <Header />
+      <ThemeContainer.Provider value={{theme,toggleThem
+}}>
+              <Header />
       <main>
-        <section className="hero bg-light">
+        <section className="hero bg-light" id={theme}>
           <div className="container">
             <div className="row">
               <div className="col-lg-6 col-md-6 col-sm-6 p-4">
@@ -125,6 +131,7 @@ const App = () => {
       </main>
       <Footer />
       <ToastContainer />
+</ThemeContainer.Provider>
     </>
   );
 };

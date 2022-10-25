@@ -91,6 +91,15 @@ margin-left: 4px;
   color: white !important ;
   cursor: pointer;
 }
+.nav-link{
+  padding: 0px !important;
+}
+#dark{
+background: #111517 !important;
+}
+#light{
+  background: #F2F2F2 !important;
+}
 @media only screen and (max-width:576px) {
   #search-country{
     width: 100% !important;

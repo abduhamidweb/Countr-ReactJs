@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import context  from '../../context';
+import context from '../../context';
 const Pagination = () => {
     let { pageNumber } = useContext(context)
     let { setCurrentPage } = useContext(context)
