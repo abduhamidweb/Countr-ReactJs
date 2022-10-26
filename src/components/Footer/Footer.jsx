@@ -1,9 +1,10 @@
-import React from 'react';
-
+import React,{useContext} from 'react';
+import context from "../../context"
 const Footer = () => {
+    const {theme}=useContext(context)
     return (
         <>
-            <footer className="bg-light text-center text-white">
+            <footer className="bg-light text-center text-white" id={theme}>
                
                 <div className="container p-4 pb-0">
                     

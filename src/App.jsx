@@ -8,13 +8,21 @@ import context from "./context";
 import { toast, ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
 import Pagination from "./components/Pagination/Pagination";
-export const ThemeContainer=createContext(null)
+export const ThemeContainer = createContext(null)
+export const ColorContainer = createContext(null)
+
 const App = () => {
   // dark mode
-  const [theme, setThem] = useState('dark')
+  const [theme, setThem] = useState('light')
+  const [color, setColor] = useState('black');
+  // console.log(color)
   const toggleThem =()=> {
   setThem((curr)=>(curr==="light" ? "dark" : "light"))
   }
+  const toggleColor = () => {
+  setColor(cur => (cur === 'white' ? 'black' : 'white'))
+}
+
   const [data, setData] = useState([]);
   const [category, setCategory] = useState([]);
   const [search, setSearch] = useState('');
@@ -60,10 +68,9 @@ const App = () => {
   }, []);
   return (
     <>
-      <ThemeContainer.Provider value={{theme,toggleThem
-}}>
+      <context.Provider value={{ theme, toggleThem, setThem, toggleColor,color }}>
               <Header />
-      <main>
+      <main id={theme}>
         <section className="hero bg-light" id={theme}>
           <div className="container">
             <div className="row">
@@ -72,8 +79,9 @@ const App = () => {
                   type="text"
                   placeholder="Search for a country…"
                   className="form-control border-1 py-2 w-75"
-                  id="search-country"
-                  value={search}
+                  id={theme}
+                    value={search}
+                   
                   onChange={(e) => {
                     setSearch(e.target.value)
                     if (search.trim().length > 0) {
@@ -83,16 +91,16 @@ const App = () => {
                 />
               </div>
               <div className="col-lg-6 col-md-6 col-sm-6 p-4">
-                <select className="form-select w-50 float-end select-category" onChange={(e) => {
+                <select className="form-select w-50 float-end select-category " id={theme} onChange={(e) => {
                   categoryData(e.target.value)
                 }}>
-                  <option disabled selected>
+                  <option disabled selected >
                     Filter by Region
                   </option>
 
                   {
                     category.map(e => {
-                      return <option>{e}</option>
+                      return <option id={toggleColor}>{e}</option>
                     })
                   }
 
@@ -102,7 +110,7 @@ const App = () => {
             </div>
           </div>
         </section>
-        <section className="cards">
+        <section className="cards" id={theme}>
           <div className="container">
             <div className="row ">
               {
@@ -120,7 +128,7 @@ const App = () => {
                 <div className="col-12">
                   <context.Provider value={{ pageNumber ,setCurrentPage}} >
                     
-                <Pagination/>
+                      <Pagination themeColor={ color} />
 
     </context.Provider>
                 </div>
@@ -131,7 +139,7 @@ const App = () => {
       </main>
       <Footer />
       <ToastContainer />
-</ThemeContainer.Provider>
+</context.Provider>
     </>
   );
 };

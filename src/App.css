@@ -28,21 +28,25 @@ main {
   padding-bottom: 50px;
 }
 
-#card {
+.card {
   margin-top: 20px;
   width: 267px;
   height: 366px;
   padding: 0;
-  margin:20px auto;
+  margin: 20px auto;
+  border: 2px solid white;
 }
-#card img{
+
+.card img {
   height: 160px !important;
   border-radius: 5px 5px 0 0;
 }
-#card .card-body{
+
+.card .card-body {
   padding: 24px !important;
 }
-#card .card-body .card-title{
+
+.card .card-body .card-title {
   font-family: 'Nunito Sans';
   font-style: normal;
   font-weight: 800;
@@ -54,7 +58,8 @@ main {
   color: #111517;
 
 }
-#card .card-body .stron{
+
+.card .card-body .stron {
   font-family: 'Nunito Sans';
   font-style: normal;
   font-weight: 600;
@@ -65,20 +70,23 @@ main {
 
   color: #111517;
 }
-#card .card-body .span{
-    font-family: 'Nunito Sans';
-    font-style: normal;
-    font-weight: 600;
-    font-size: 16px;
-    line-height: 16px;
-    /* identical to box height, or 114% */
-margin-left: 4px;
 
-    color: #2a2e30;
+.card .card-body .span {
+  font-family: 'Nunito Sans';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 16px;
+  /* identical to box height, or 114% */
+  margin-left: 4px;
+
+  color: #2a2e30;
 }
-.cards .row{
+
+.cards .row {
   justify-content: space-between;
 }
+
 .pagination_list {
   width: 40%;
   display: flex;
@@ -86,24 +94,51 @@ margin-left: 4px;
   margin: auto;
   list-style: none;
 }
-.pagination__item:hover{
-  background: gray !important ;
-  color: white !important ;
+
+.pagination__item:hover {
+  background: gray !important;
+  color: white !important;
   cursor: pointer;
 }
-.nav-link{
+
+.nav-link {
   padding: 0px !important;
 }
-#dark{
-background: #111517 !important;
+
+#dark {
+  background: #111517 !important;
+  color: #F2F2F2;
 }
-#light{
+
+#dark::placeholder {
+  color: #F2F2F2;
+}
+
+#light {
   background: #F2F2F2 !important;
 }
+
+.select-category {
+  border: 2px solid white !important;
+}
+
+.block-line {
+  width: 100%;
+  height: 2px;
+  background: #F2F2F2 !important;
+  display: block;
+}
+#white{
+  color: white !important;
+}
+#black{
+  color: black !important ;
+}
 @media only screen and (max-width:576px) {
-  #search-country{
+  #search-country {
     width: 100% !important;
   }
+
   .select-category {
     width: 100% !important;
   }
