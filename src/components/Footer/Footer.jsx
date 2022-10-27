@@ -1,7 +1,10 @@
 import React,{useContext} from 'react';
 import context from "../../context"
 const Footer = () => {
-    const {theme}=useContext(context)
+    const { theme } = useContext(context);
+    const { Lang, setLang, lang } = useContext(context);
+  const t = Lang[lang];
+    
     return (
         <>
             <footer className="bg-light text-center text-white" id={theme}>
@@ -67,8 +70,8 @@ const Footer = () => {
 
                 {/* <!-- Copyright --> */}
                 <div className="text-center p-3" style={{ backgroundColor: "rgba(0, 0, 0, 0.2)" }}>
-                    © {new Date().getFullYear()} Copyright:
-                    <a className="text-white mx-2" href="tel://+998997867075">Abduhamid Botirov</a>
+                    © {new Date().getFullYear()} {t.copyright}:
+                    <a className="text-white mx-2" href="tel://+998997867075">{ t.isName}</a>
                 </div>
                 {/* <!-- Copyright --> */}
             </footer>

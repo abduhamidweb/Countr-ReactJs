@@ -1,48 +1,53 @@
-import React, { useContext,useState } from "react";
-import context from "../../context";
-const Card = ({ data }) => {
-  // let [dats, setDatas] = useState([])
-  let { theme } = useContext(context);
+import React, { useContext, useState } from 'react'
+import { Link } from 'react-router-dom'
+import context from '../../context'
+const Card = ({ data, id }) => {
+  console.log(id)
+  let { theme } = useContext(context)
   let { color } = useContext(context)
-//   let { lastData } = useContext(context);
-//   let { totolPage } = useContext(context);
-// lastData.forEach((item) => {
-//   setDatas.push([item])
-// })
-//   console.log(dats)
-
-  // console.log(lastData)
-  // let pageNumber = []
-  // for (let i = 1; i <= Math.ceil(data.length / totolPage); i++){
-  //   pageNumber.push(i)
-  // }
-  // data=data.item
+  const { Lang, setLang, lang } = useContext(context)
+  const t = Lang[lang]
   return (
     <>
-      <div className="card"   data-aos="fade-in" data-aos-duration="10000">
-        <img src={data.flags.png} alt="img" />
+      <div className='card' data-aos='fade-in' data-aos-duration='10000'>
+    
+                <img src={data.flags.png} alt='img' />
         <span className='block-line'></span>
-
-        <div className="card-body  "id = { theme }
->
-          <h5 className="card-title" id={color}>{data.name.common
-          }</h5>
-          <h5 className="mt-4">
-            <strong className="stron" id={color}>Population:</strong>
-            <span className="span"id = { color }>{data.population}</span>
+    
+        <div className='card-body  ' id={theme}>
+          <Link to={`/info/${id}`}>
+          <h5 className='card-title' id={color}>
+            {data.name.common}
+          </h5>
+          <h5 className='mt-4'>
+            <strong className='stron' id={color}>
+              {t.population}
+            </strong>
+            <span className='span' id={color}>
+              {data.population}
+            </span>
           </h5>
           <h5>
-            <strong className="stron" id = { color }>Region:</strong>
-            <span className="span" id = { color }>{data.region}</span>
+            <strong className='stron' id={color}>
+              {t.region}
+            </strong>
+            <span className='span' id={color}>
+              {data.region}
+            </span>
           </h5>
           <h5>
-            <strong className="stron"id = { color } >Capital:</strong>
-            <span className="span" id = { color }>{data.capital}</span>
-          </h5>
+            <strong className='stron' id={color}>
+              {t.capital}
+            </strong>
+            <span className='span' id={color}>
+              {data.capital}
+            </span>
+            </h5>
+            </Link>
         </div>
       </div>
     </>
-  );
-};
+  )
+}
 
-export default Card;
+export default Card

@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import context from '../../context';
-const Pagination = ({ themeColor }) => {
+const Pagination = ({ themeColor,theme }) => {
     let { pageNumber } = useContext(context)
     let { setCurrentPage } = useContext(context)
     // console.log(color)
@@ -14,7 +14,8 @@ const Pagination = ({ themeColor }) => {
                         <li
                             // ref={liRef}
                             className="pagination__item page-link active row hover-shadow"
-                            id={themeColor}
+                            id={{themeColor,theme}}
+                            
                             onClick={
                                 () => setCurrentPage(e)}>
                             {e}

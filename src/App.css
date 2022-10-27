@@ -88,13 +88,16 @@ main {
 }
 
 .pagination_list {
-  width: 40%;
+  width: 65%;
   display: flex;
   justify-content: space-between;
   margin: auto;
   list-style: none;
-}
 
+}
+.pagination_list li{
+  background: rgb(226, 231, 230);
+}
 .pagination__item:hover {
   background: gray !important;
   color: white !important;
